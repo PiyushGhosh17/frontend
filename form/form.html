@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   input,select{
+    border: 1px solid blue;
+   }
+   
+
+   .label
+   {
+     /* outline: 2px  solid yellow; */
+     max-width:90px;
+   }
+
+   .user{
+    display: flex;
+    margin-top: 12px;
+   }
+   .userInp{
+        margin-left: 35px;
+   }
+
+   .pass{
+    display: flex;
+    margin-top: 14px;
+
+   }
+   .passInp{
+        margin-left: 37px;
+
+   }
+
+   .emp{
+    display: flex;
+    align-items: start;
+    margin-top: 12px;
+   }
+   .empInp{
+    margin-left: 15px;
+   }
+
+   .server{
+    display: flex;
+    margin-top: 12px;
+    align-items: start;
+   }
+   .serverInp{
+    margin-left: 25px;
+   }
+
+
+   .role
+   {
+    display: flex;
+    align-items: start;
+    margin-top:12px ;
+   }
+   .roleInp{
+    margin-left: 5px;
+   }
+
+   .sign
+   {
+    display: flex;
+    align-items: start;
+    margin-top: 3px;
+   }
+   .signInp{
+    margin-left: 5px;
+   }
+    
+</style>
+<body>
+    <form>
+       <div class="user">
+        <label class="label">Username: </label>
+        <div class="userInp">
+            <input type="text" name="name" required>
+        </div>
+       </div>
+
+       <div class="pass">
+        <label class="label">Password: </label>
+        <div class="passInp">
+            <input type="passowrd" id="pass" name="pass" required>
+        </div>
+       </div>
+
+            <div class="emp">
+                <label class="label">City of Employement: </label>
+                <div class="empInp">
+                <input type="text" name="emp" >
+
+                </div>
+            </div>
+            
+            <div class="server">
+                <label class="label"> Web server: </label>
+                <div class="serverInp">
+                    <select name="web server">
+                        <option value="">Choose a server</option>
+                        <option value="Apache">Apache</option>
+                        <option value="Nginx">Nginx</option>
+                        <option value="Node.js">Node.js</option>
+                        <option value="IIS Web Server">IIS Web Server</option>
+                    </select>
+                </div>
+            
+            </div>
+            
+        
+        <div class="role">
+            <label  class="label"> Please specify your role:  </label>
+         <div class="roleInp">
+            <input type="radio" id="admin" name="role" value="Admin">
+            <label> Admin </label><br>
+            <input type="radio" id="eng" name="role" value="Engineer">
+            <label> Engineer </label><br>
+            <input type="radio" id="Mang" name="role" value="Manager">
+            <label> Manager </label><br>
+            <input type="radio" id="guest" name="role" value="Guest">
+            <label> Guest </label><br>
+        </div>
+        </div>
+        
+
+        <div class="sign">
+            <label class="label"> Sign-on to the following:  </label>
+            <div class="signInp">
+                <input type="checkbox" name="mail" value="Mail">
+                <label> Mail </label><br>
+                <input type="checkbox" name="Payroll" value="Payroll">
+                <label> Payroll </label><br>
+                <input type="checkbox" name="selfservice " value="selfservice">
+                <label> self-service </label><br><br>
+            </div>
+        </div>
+
+        <div style="margin-left: 30px;">
+            <input type="submit" value="Login" onclick="checkPass(document.getElementById('pass'))">
+            <input type="Reset" value="Reset">
+        </div>
+       
+
+        
+    </form>
+ 
+</body>
+</html>
