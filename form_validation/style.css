@@ -1,0 +1,67 @@
+input,select{
+    border: 1px solid blue;
+   }
+   
+
+   .label
+   {
+     /* outline: 2px  solid yellow; */
+     max-width:90px;
+   }
+
+   .user{
+    display: flex;
+    margin-top: 12px;
+   }
+   .userInp{
+        margin-left: 35px;
+   }
+
+   .pass{
+    display: flex;
+    margin-top: 14px;
+
+   }
+   .passInp{
+        margin-left: 37px;
+
+   }
+
+   .emp{
+    display: flex;
+    align-items: start;
+    margin-top: 12px;
+   }
+   .empInp{
+    margin-left: 15px;
+   }
+
+   .server{
+    display: flex;
+    margin-top: 12px;
+    align-items: start;
+   }
+   .serverInp{
+    margin-left: 25px;
+   }
+
+
+   .role
+   {
+    display: flex;
+    align-items: start;
+    margin-top:12px ;
+   }
+   .roleInp{
+    margin-left: 5px;
+   }
+
+   .sign
+   {
+    display: flex;
+    align-items: start;
+    margin-top: 3px;
+   }
+   .signInp{
+    margin-left: 5px;
+   }

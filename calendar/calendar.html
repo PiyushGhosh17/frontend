@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+    .calendar
+    {
+        display: flex;
+        align-items: center;
+    }
+    .weeks
+    {
+        display: grid;
+        grid-template-columns:repeat(7,50px)}
+    
+    li{
+        padding: 10px;
+        border: 1px solid black;
+        list-style: none;
+        
+    }
+    #days{
+         margin-left: 0px; 
+         padding: 0px; 
+        display: grid;
+        grid-template-columns:repeat(7,50px);
+        
+    }
+    
+    
+   
+</style>
+<body>
+    <h2 id="currDate"></h2>
+    <div class="calendar">
+        
+        <ul class="weeks">
+            <li>SUN</li>
+            <li>MON</li>
+            <li>TUE</li>
+            <li>WED</li>
+            <li>TH</li>
+            <li>FRI</li>
+            <li>SAT</li>
+        
+        
+        <ul id="days">
+            
+         
+    </div>
+    
+
+
+    <script>
+        const currDate=document.getElementById("currDate");
+        const daysTag=document.getElementById("days");
+       
+        let date=new Date();
+        currYear=date.getFullYear();
+        currMonth=date.getMonth();
+       
+        const month=["jan","Feb","Mar","April","May","June","July","Augest","Sep","Oct","Nov","DEc"]
+
+        const renderCal=()=>{
+            let lastDayMonth=new Date(currYear,currMonth+1,0).getDate();
+            console.log(lastDayMonth);
+            const startingDay = new Date(currYear,currMonth).getDay();
+            console.log(startingDay);
+
+            
+            const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+            const d = new Date();
+           
+           
+            
+
+
+            for(let i=1;i<=startingDay;i++){
+                let dates=document.createElement("li");
+                let  textnode = document.createTextNode(" ");
+                
+                dates.appendChild(textnode);
+                daysTag.appendChild(dates);  
+            }
+
+            for(let i=1;i<=lastDayMonth;i++){
+               
+                let dates=document.createElement("li");
+                let  textnode = document.createTextNode(i);
+                if(weekday[d.getDay()]=="Sunday"){
+                    dates.appendChild(textnode);
+                    let txt=document.getElementsByName("li");
+                    txt.style.color="red";
+                    daysTag.appendChild(dates);
+                    txt.style.color="red";
+                }else{
+                    dates.appendChild(textnode);
+                    daysTag.appendChild(dates);
+                }
+                
+                 
+                
+            }
+            for(let i=1;i<=startingDay;i++){
+                let dates=document.createElement("li");
+                let  textnode = document.createTextNode(" ");
+                dates.appendChild(textnode);
+                daysTag.appendChild(dates);  
+            }
+
+            currDate.innerText=`${month[currMonth]},${currYear}`;
+           
+        }
+        renderCal();
+        
+    </script>
+</body>
+</html>
