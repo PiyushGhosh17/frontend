@@ -13,14 +13,14 @@
        <div class="user">
         <label class="label">Username: </label>
         <div class="userInp">
-            <input type="text" name="name" required>
+            <input type="text" id="user" name="name" >
         </div>
        </div>
 
        <div class="pass">
         <label class="label">Password: </label>
         <div class="passInp">
-            <input type="passowrd" id="pass" name="pass" required>
+            <input type="passowrd" id="pass" name="pass" >
         </div>
        </div>
 
@@ -74,8 +74,8 @@
             </div>
         </div>
 
-        <div style="margin-left: 30px;">
-            <input type="submit" value="Login" onclick="checkPass(document.getElementById('pass'))">
+        <div style="margin-left: 160px;">
+            <input type="submit" value="Login" onclick="checkPass(document.getElementById('pass'),document.getElementById('user'))">
             <input type="Reset" value="Reset">
         </div> 
     </form>

@@ -1,124 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
-    
-    .calendar
-    {
-        display: flex;
-        align-items: center;
-    }
-    .weeks
-    {
-        display: grid;
-        grid-template-columns:repeat(7,50px)}
-    
-    li{
-        padding: 10px;
-        border: 1px solid black;
-        list-style: none;
-        
-    }
-    #days{
-         margin-left: 0px; 
-         padding: 0px; 
-        display: grid;
-        grid-template-columns:repeat(7,50px);
-        
-    }
-    
-    
-   
-</style>
-<body>
-    <h2 id="currDate"></h2>
-    <div class="calendar">
-        
-        <ul class="weeks">
-            <li>SUN</li>
-            <li>MON</li>
-            <li>TUE</li>
-            <li>WED</li>
-            <li>TH</li>
-            <li>FRI</li>
-            <li>SAT</li>
-        
-        
-        <ul id="days">
-            
-         
-    </div>
-    
+  </head>
+  <style>
+    /* original  view  . */
 
+    .calendar {
+    }
+
+    .weeks {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(7, 0.5fr);
+    }
+
+    li {
+      padding: 5px;
+      border: 1px solid black;
+      list-style: none;
+    }
+
+    #days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      grid-gap: 5px;
+    }
+
+    .cal li {
+      height: 100px;
+    }
+    .head {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      margin-left: 40px;
+    }
+    button {
+      margin-right: 10px;
+      background: none;
+      color: inherit;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #days li:nth-child(7n + 1) {
+      color: red;
+    }
+
+    #days li:nth-child(7n + 6) {
+      color: green;
+    }
+  </style>
+  <body>
+    <div class="head">
+      <button onclick="prevMonth()"><</button>
+      <button onclick="nextMonth()">></button>
+      <h2 id="currDate"></h2>
+    </div>
+
+    <div class="calendar">
+      <ul class="weeks">
+        <li>SUN</li>
+        <li>MON</li>
+        <li>TUE</li>
+        <li>WED</li>
+        <li>TH</li>
+        <li>FRI</li>
+        <li>SAT</li>
+      </ul>
+    </div>
+    <div class="cal">
+      <ul id="days"></ul>
+    </div>
 
     <script>
-        const currDate=document.getElementById("currDate");
-        const daysTag=document.getElementById("days");
-       
-        let date=new Date();
-        currYear=date.getFullYear();
-        currMonth=date.getMonth();
-       
-        const month=["jan","Feb","Mar","April","May","June","July","Augest","Sep","Oct","Nov","DEc"]
+      let today = new Date();
 
-        const renderCal=()=>{
-            let lastDayMonth=new Date(currYear,currMonth+1,0).getDate();
-            console.log(lastDayMonth);
-            const startingDay = new Date(currYear,currMonth).getDay();
-            console.log(startingDay);
+      let currYear = today.getFullYear();
+      let currMonth = today.getMonth();
 
-            
-            const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      const weekday = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const month = [
+        "jan",
+        "Feb",
+        "Mar",
+        "April",
+        "May",
+        "June",
+        "July",
+        "Augest",
+        "Sep",
+        "Oct",
+        "Nov",
+        "DEc",
+      ];
 
-            const d = new Date();
-           
-           
-            
+      const currDate = document.getElementById("currDate");
+      renderCal(currYear, currMonth);
 
+      function nextMonth() {
+        currYear = currMonth === 11 ? currYear + 1 : currYear;
+        currMonth = currMonth === 11 ? 0 : currMonth+1;
+        renderCal(currYear, currMonth);
+      }
 
-            for(let i=1;i<=startingDay;i++){
-                let dates=document.createElement("li");
-                let  textnode = document.createTextNode(" ");
-                
-                dates.appendChild(textnode);
-                daysTag.appendChild(dates);  
+      function prevMonth() {
+        currYear = currMonth === 0 ? currYear - 1 : currYear;
+        currMonth = currMonth === 0 ? 11 : currMonth - 1;
+        renderCal(currYear, currMonth);
+      }
+
+      
+
+      function renderCal(currYear, currMonth) {
+        const daysTag = document.getElementById("days");
+        daysTag.innerHTML=""
+        let lastDayMonth = new Date(currYear, currMonth + 1, 0).getDate();
+       console.log(lastDayMonth);
+        const startingDay = new Date(currYear, currMonth).getDay();
+        currDate.innerHTML = month[currMonth] + "," + currYear;
+        console.log(startingDay);
+        console.log(lastDayMonth);
+        let daysInaWeek = 7;
+        let date = 1;
+        for (let i = 0; i <( lastDayMonth+startingDay)/7; i++) {
+          for (let j = 0; j < daysInaWeek; j++) {
+            if (i === 0 && j < startingDay) {
+              let dates = document.createElement("li");
+              let textnode = document.createTextNode("");
+              dates.appendChild(textnode);
+              daysTag.appendChild(dates);
+            } else if (date <lastDayMonth+1) {
+              let dates = document.createElement("li");
+              let textnode = document.createTextNode(date);
+              dates.appendChild(textnode);
+              daysTag.appendChild(dates);
+              date++;
             }
-
-            for(let i=1;i<=lastDayMonth;i++){
-               
-                let dates=document.createElement("li");
-                let  textnode = document.createTextNode(i);
-                if(weekday[d.getDay()]=="Sunday"){
-                    dates.appendChild(textnode);
-                    let txt=document.getElementsByName("li");
-                    txt.style.color="red";
-                    daysTag.appendChild(dates);
-                    txt.style.color="red";
-                }else{
-                    dates.appendChild(textnode);
-                    daysTag.appendChild(dates);
-                }
-                
-                 
-                
+            else{
+                let dates = document.createElement("li");
+                let textnode = document.createTextNode("");
+              dates.appendChild(textnode);
+              daysTag.appendChild(dates);
             }
-            for(let i=1;i<=startingDay;i++){
-                let dates=document.createElement("li");
-                let  textnode = document.createTextNode(" ");
-                dates.appendChild(textnode);
-                daysTag.appendChild(dates);  
-            }
+          }
 
-            currDate.innerText=`${month[currMonth]},${currYear}`;
-           
+          // for (let i = 1; i <= lastDayMonth; i++) {
+          //   let dates = document.createElement("li");
+          //   let textnode = document.createTextNode(i);
+
+          //   dates.appendChild(textnode);
+
+          //   daysTag.appendChild(dates);
+          // }
         }
-        renderCal();
-        
+      }
+      renderCal(currYear, currMonth);
     </script>
-</body>
+  </body>
 </html>
+
+<!-- for (let i = 1; i <= startingDay; i++) {
+    let dates = document.createElement("li");
+    let textnode = document.createTextNode(" ");
+
+    dates.appendChild(textnode);
+    daysTag.appendChild(dates);
+  }
+
+  for (let i = 1; i <= lastDayMonth; i++) {
+    let dates = document.createElement("li");
+    let textnode = document.createTextNode(i);
+
+    dates.appendChild(textnode);
+
+    daysTag.appendChild(dates);
+  } -->
