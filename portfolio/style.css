@@ -18,17 +18,17 @@ margin-top: 40px;
     
 }
 
-ul{
+.routes{
     list-style-type: none;
     overflow: hidden;
 }
 
-li{
+.routes{
 float: left;
 
 }
 
-li a{
+.routes a{
     display: block;
     text-align:right;
     padding: 16px;
@@ -39,12 +39,12 @@ li a{
     
 }
 
-li a:hover{
+.routes a:hover{
     font-size: 22px;
 }
 /* -------------- body css ----------------- */
 
-progress{
+.progress{
  
     height: 40px;
 }
