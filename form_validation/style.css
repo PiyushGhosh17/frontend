@@ -1,66 +1,13 @@
-input,select{
-    border: 1px solid blue;
-   }
-   
-
-   .label
-   {
-     /* outline: 2px  solid yellow; */
-     max-width:120px;
-   }
-
-   .user{
-    display: flex;
-    margin-top: 12px;
-   }
-   .userInp{
-        margin-left: 92px;
-   }
-
-   .pass{
-    display: flex;
-    margin-top: 14px;
-
-   }
-   .passInp{
-        margin-left: 97px;
-   }
-
-   .emp{
-    display: flex;
-    align-items: start;
-    margin-top: 25px;
-   }
-   .empInp{
-    margin-left: 75px;
-   }
-
-   .server{
-    display: flex;
-    margin-top: 20px;
-    align-items: start;
-   }
-   .serverInp{
-    margin-left: 78px;
-   }
+form{
+     display: inline-grid;
+     grid-template-columns: max-content 1fr;
+     grid-gap:1rem;
+     grid-template-rows: repeat(6,max-content);
+     justify-items: start;
+     align-items: center;
+}
 
 
-   .role
-   {
-    display: flex;
-    align-items: start;
-    margin-top:25px ;
-   }
-   .roleInp{
-    margin-left: 65px;
-   }
-
-   .sign
-   {
-    display: flex;
-    align-items: start;
-    margin-top: 20px;
-   }
-   .signInp{
-    margin-left: 65px;
-   }
+.btn{
+     grid-column: 2/-1;
+}
