@@ -1,0 +1,21 @@
+form{
+    display: inline-grid;
+    grid-template-columns: max-content 1fr;
+    grid-gap:1rem;
+    grid-template-rows: repeat(6,max-content);
+    justify-content: center;
+    align-items: center;
+}
+label{
+    justify-self: start;
+}
+.div{
+    margin-top: 30px;
+}
+
+.btn{
+    grid-column: 2/-1;
+}
+.btn button{
+    margin-right: 15px;
+}
