@@ -3,17 +3,8 @@ let today = new Date();
 let currYear = today.getFullYear();
 let currMonth = today.getMonth();
 
-const weekday = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
 const month = [
-  "jan",
+  "Jan",
   "Feb",
   "Mar",
   "April",
@@ -24,7 +15,7 @@ const month = [
   "Sep",
   "Oct",
   "Nov",
-  "DEc",
+  "Dec",
 ];
 
 const day = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
@@ -44,44 +35,39 @@ function prevMonth() {
   renderCal(currYear, currMonth);
 }
 
+function addNode(daysTag, li, date) {
+  let dates = document.createElement(li);
+  let textnode = document.createTextNode(date);
+  dates.appendChild(textnode);
+  daysTag.appendChild(dates);
+}
+
 function renderCal(currYear, currMonth) {
   const daysTag = document.getElementById("days");
   daysTag.innerHTML = "";
 
   for (let i = 0; i < 7; i++) {
-    let dates = document.createElement("li");
-    let textnode = document.createTextNode(day[i]);
-    dates.appendChild(textnode);
-    daysTag.appendChild(dates);
+    addNode(daysTag, "li", day[i]);
   }
 
   let lastDayMonth = new Date(currYear, currMonth + 1, 0).getDate();
 
   const startingDay = new Date(currYear, currMonth).getDay();
-  currDate.innerHTML = month[currMonth] + "," + currYear;
+  currDate.innerHTML =
+    today.getDate() + " " + month[currMonth] + "," + currYear;
 
   let daysInaWeek = 7;
   let date = 1;
   for (let i = 0; i < (lastDayMonth + startingDay) / 7; i++) {
     for (let j = 0; j < daysInaWeek; j++) {
       if (i === 0 && j < startingDay) {
-        let dates = document.createElement("li");
-        let textnode = document.createTextNode("");
-        dates.appendChild(textnode);
-        daysTag.appendChild(dates);
+        addNode(daysTag, "li", "");
       } else if (date < lastDayMonth + 1) {
-        let dates = document.createElement("li");
-        let textnode = document.createTextNode(date);
-        dates.appendChild(textnode);
-        daysTag.appendChild(dates);
+        addNode(daysTag, "li", date);
         date++;
       } else {
-        let dates = document.createElement("li");
-        let textnode = document.createTextNode("");
-        dates.appendChild(textnode);
-        daysTag.appendChild(dates);
+        addNode(daysTag, "li", "");
       }
     }
   }
 }
-// renderCal(currYear, currMonth);

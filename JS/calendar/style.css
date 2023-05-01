@@ -43,6 +43,6 @@ button {
     color: red;
 }
 
-#days li:nth-child(7n + 12) {
+#days li:nth-child(7n + 13) {
     color: green;
 }
