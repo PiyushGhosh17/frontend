@@ -4,7 +4,7 @@ let user = document.getElementById("user");
 
 const checkPass = (event) => {
   event.preventDefault();
-  // var pat=/^[A-Za-z0-9]\w{8,20}$/;
+
   if (user.value === "") {
     alert("Please Enter username");
     user.focus();
