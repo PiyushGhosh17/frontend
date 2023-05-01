@@ -20,19 +20,7 @@ apps.forEach (item=>{
 }) 
 
 
-// function add(){
-//     var txt= document.getElementById('ele').value;
-//     const node=document.createElement("li");
-//     const textNode=document.createTextNode(txt);
-//     node.appendChild(textNode);
-//     document.getElementById("apps").appendChild(node);
 
-// }
-
-// function rev(){
-//     const element=document.getElementById("netflix");
-//     element.remove();
-// }
 
 
 
