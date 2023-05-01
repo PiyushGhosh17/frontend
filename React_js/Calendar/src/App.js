@@ -1,23 +1,18 @@
+import React, { useState } from "react";
 import "./App.css";
 
+let today = new Date();
+let currYear = today.getFullYear();
+let currMonth = today.getMonth();
+let getDate = today.getDate();
+
 function App() {
-  let today = new Date();
-  let currYear = today.getFullYear();
-  let currMonth = today.getMonth();
-  let getDate = today.getDate();
+  const [month, setMonth] = useState(currMonth);
+  const [year, setYear] = useState(currYear);
+  const [todaysDate, setTodaysDate] = useState(getDate);
 
-  const weekday = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
-  const month = [
-    "jan",
+  const monthArray = [
+    "Jan",
     "Feb",
     "Mar",
     "April",
@@ -33,26 +28,45 @@ function App() {
 
   const day = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
-  let ans = [];
+  const datesArray = (month, year) => {
+    let ans = [];
 
-  // renderCal(currYear, currMonth);
-
-  const nextMonth = () => {
-    currYear = currMonth === 11 ? currYear + 1 : currYear;
-    currMonth = currMonth === 11 ? 0 : currMonth + 1;
-    // renderCal(currYear, currMonth);
-  };
-
-  const prevMonth = () => {
-    currYear = currMonth === 0 ? currYear - 1 : currYear;
-    currMonth = currMonth === 0 ? 11 : currMonth - 1;
-    // renderCal(currYear, currMonth);
-  };
-
-  const renderCal = (currYear, currMonth) => {
     for (let i = 0; i < 7; i++) {
       ans.push(day[i]);
     }
+
+    const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
+    const startingDay = new Date(year, month).getDay();
+
+    let dayInWeek = 7;
+    let date = 1;
+    for (let i = 0; i < (lastDayOfMonth + startingDay) / 7; i++) {
+      for (let j = 0; j < dayInWeek; j++) {
+        if (i === 0 && j < startingDay) {
+          ans.push(" ");
+        } else if (date < lastDayOfMonth + 1) {
+          ans.push(date);
+          date++;
+        } else {
+          ans.push(" ");
+        }
+      }
+    }
+    console.log({ ans });
+    return ans;
+  };
+  const nextMonth = () => {
+    setYear(month === 11 ? year + 1 : year);
+    setMonth(month === 11 ? 0 : month + 1);
+  };
+
+  const prevMonth = () => {
+    setYear(month === 0 ? year - 1 : year);
+    setMonth(month === 0 ? 11 : month - 1);
+  };
+
+  const handleChangeDate = (date) => {
+    setTodaysDate(date);
   };
 
   return (
@@ -60,18 +74,38 @@ function App() {
       <h1>Calendar view</h1>
       <div className="navigation">
         <button className="btn" onClick={prevMonth}>
-          {" "}
-          &lt;{" "}
+          &lt;
         </button>
         <button className="btn" onClick={nextMonth}>
-          {" "}
-          &gt;{" "}
+          &gt;
         </button>
-        <h3>{getDate + " " + month[currMonth] + " ," + currYear}</h3>
+        <h3>{todaysDate + " " + monthArray[month] + " ," + year}</h3>
+        <input
+          className="inp"
+          type="text"
+          name="month"
+          placeholder="Enter Month no: "
+          onChange={(e) => setMonth(e.target.value)}
+        />
+        <input
+          type="text"
+          name="year"
+          placeholder="Enter Year "
+          className="inp"
+          onChange={(e) => setYear(e.target.value)}
+        />
       </div>
 
       <div className="calendar">
-        <ul id="days"></ul>
+        <ul id="days">
+          {datesArray(month, year).map((date) => {
+            return (
+              <li id="date" onClick={() => handleChangeDate(date)}>
+                {date}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </>
   );

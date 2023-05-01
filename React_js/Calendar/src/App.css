@@ -1,0 +1,47 @@
+.navigation {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    font-weight: bold;
+    color: inherit;
+    background: none;
+}
+
+#days {
+    display: grid;
+    grid-template-columns: repeat(7, 6ch);
+    
+}
+
+li {
+    list-style: none;
+    border: 1px solid grey;
+    text-align: center;
+    padding: 10px;
+    color: gray;
+    margin: -1px -1px 0 0;
+    
+}
+
+#date{
+    cursor: pointer;
+}
+
+#date:nth-child(7n+8){
+    color: red;
+}
+
+#date:nth-child(7n+13) {
+    color: green;
+}
+
+.inp{
+    margin-left: 10px;
+    width: 150px;
+}
