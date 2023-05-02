@@ -1,0 +1,78 @@
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #32a862;
+    height: 200px;
+}
+
+.headList{
+margin-top: 40px;
+}
+
+.title{
+    margin-left: 10px;
+    color: white;
+    margin-top: 40px;
+    
+}
+
+ul{
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li{
+float: left;
+
+}
+
+li a{
+    display: block;
+    text-align:right;
+    padding: 16px;
+    color: white;
+    text-decoration: none;
+    float: right;
+    font-size:18px;
+    
+}
+
+li a:hover{
+    font-size: 22px;
+    
+}
+/* --------------- form ---------- */
+.container{
+    display: flex;
+    margin-top: 65px;
+    color: black;
+    justify-content: center;
+    margin: auto;
+    
+}
+
+
+form{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    grid-template-rows: repeat(5,max-content);
+    justify-items: start;
+    grid-gap: 1rem;
+    
+}
+.inp{
+    grid-column: 2/-1;
+}
+
+ label{
+    justify-self: end;
+} 
+
+
+
+
+
+/*  ---------------- media query ----------- */
