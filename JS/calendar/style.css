@@ -1,0 +1,37 @@
+
+li {
+    padding: 4px;
+    border: 1px solid grey;
+    margin: -1px -1px 0 0;
+    list-style: none;
+    text-align: center;
+    color: grey;
+    
+}
+
+#days {
+    display: grid;
+    grid-template-columns: repeat(7,6ch);
+}
+
+.head {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    margin-right: 10px;
+    background: none;
+    color: inherit;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#days li:nth-child(7n + 8) {
+    color: red;
+}
+
+#days li:nth-child(7n + 13) {
+    color: green;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+ 
+  <body>
+    <form>
+      <label for="user" class="label">Username: </label>
+      <input type="text" id="user" name="name" />
+
+      <label for="pass" class="label">Password: </label>
+      <input type="password" id="pass" name="pass" />
+
+      <label for="emp" class="label">City of Employement: </label>
+      <input id="emp" type="text" name="emp" />
+
+      <label for="server" class="label"> Web server: </label>
+      <div>
+        <select id="server" name="web server">
+          <option value="">Choose a server</option>
+          <option value="Apache">Apache</option>
+          <option value="Nginx">Nginx</option>
+          <option value="Node.js">Node.js</option>
+          <option value="IIS Web Server">IIS Web Server</option>
+        </select>
+      </div>
+
+      <label class="label"> Please specify your role: </label>
+      <div>
+        <input type="radio" id="admin" name="role" value="Admin" />
+        <label for="admin"> Admin </label><br />
+        <input type="radio" id="eng" name="role" value="Engineer" />
+        <label for="eng"> Engineer </label><br />
+        <input type="radio" id="Mang" name="role" value="Manager" />
+        <label for="Mang"> Manager </label><br />
+        <input type="radio" id="guest" name="role" value="Guest" />
+        <label for="guest"> Guest </label><br />
+      </div>
+
+      <label class="label"> Sign-on to the following: </label>
+      <div>
+        <input id="mail" type="checkbox" name="mail" value="mail" />
+        <label for="mail"> Mail </label><br />
+        <input id="payroll" type="checkbox" name="payroll" value="payroll" />
+        <label for="payroll"> Payroll </label><br />
+        <input
+          id="selfservice"
+          type="checkbox"
+          name="selfservice "
+          value="selfservice"
+        />
+        <label for="selfservice"> self-service </label><br /><br />
+      </div>
+
+      <div class="btn">
+        <button type="submit" id="form">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+      
+    </form>
+
+
+    <script src="val.js"></script>
+  </body>
+</html>

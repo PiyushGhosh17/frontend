@@ -1,0 +1,13 @@
+form{
+     display: inline-grid;
+     grid-template-columns: max-content 1fr;
+     grid-gap:1rem;
+     grid-template-rows: repeat(6,max-content);
+     justify-items: start;
+     align-items: center;
+}
+
+
+.btn{
+     grid-column: 2/-1;
+}
