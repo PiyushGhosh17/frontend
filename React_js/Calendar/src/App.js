@@ -5,28 +5,27 @@ let today = new Date();
 let currYear = today.getFullYear();
 let currMonth = today.getMonth();
 let getDate = today.getDate();
+const monthArray = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "April",
+  "May",
+  "Ju",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+const day = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
 function App() {
   const [month, setMonth] = useState(currMonth);
   const [year, setYear] = useState(currYear);
   const [todaysDate, setTodaysDate] = useState(getDate);
-
-  const monthArray = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "April",
-    "May",
-    "June",
-    "July",
-    "Augest",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-
-  const day = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
   const datesArray = (month, year) => {
     let ans = [];
@@ -69,31 +68,49 @@ function App() {
     setTodaysDate(date);
   };
 
+  const handleMonth = (month) => {
+    setMonth(month);
+  };
+
+  const handleYear = (year) => {
+    setYear(year);
+  };
+
   return (
     <>
       <h1>Calendar view</h1>
       <div className="navigation">
-        <button className="btn" onClick={prevMonth}>
-          &lt;
-        </button>
-        <button className="btn" onClick={nextMonth}>
-          &gt;
-        </button>
-        <h3>{todaysDate + " " + monthArray[month] + " ," + year}</h3>
-        <input
-          className="inp"
-          type="text"
-          name="month"
-          placeholder="Enter Month no: "
-          onChange={(e) => setMonth(e.target.value)}
-        />
-        <input
-          type="text"
-          name="year"
-          placeholder="Enter Year "
-          className="inp"
-          onChange={(e) => setYear(e.target.value)}
-        />
+        <div>
+          <button className="btn" onClick={prevMonth}>
+            &lt;
+          </button>
+          <span className="title">
+            {todaysDate + " " + monthArray[month] + " ," + year}
+          </span>
+          <button className="btn" onClick={nextMonth}>
+            &gt;
+          </button>
+        </div>
+
+        <div className="input">
+          <select className="inp" onChange={(e) => handleMonth(e.target.value)}>
+            <option value="">Choose month</option>
+            {monthArray.map((m, idx) => {
+              return (
+                <option key={m} value={idx}>
+                  {m}
+                </option>
+              );
+            })}
+          </select>
+          <input
+            type="text"
+            name="year"
+            placeholder="Enter Year "
+            className="inp"
+            onChange={(e) => handleYear(e.target.value)}
+          />
+        </div>
       </div>
 
       <div className="calendar">

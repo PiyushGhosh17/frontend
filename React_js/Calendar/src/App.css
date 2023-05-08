@@ -1,7 +1,11 @@
-.navigation {
-    display: flex;
-    align-items: center;
+.navigation  {
+    display:flex;
+    flex-direction: column;
     margin-left: 40px;
+}
+
+.input{
+    display: block;
 }
 
 .btn {
@@ -18,6 +22,10 @@
     grid-template-columns: repeat(7, 6ch);
     
 }
+.title{
+    font-weight: bold;
+}
+
 
 li {
     list-style: none;
@@ -31,6 +39,11 @@ li {
 
 #date{
     cursor: pointer;
+    
+}
+#date:hover{
+    border: 2px solid black;
+    font-weight: bold;
 }
 
 #date:nth-child(7n+8){
