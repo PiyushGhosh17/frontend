@@ -1,0 +1,30 @@
+.contactUs{
+    text-align: center;
+}
+.container {
+    display: flex;
+    margin-top: 65px;
+    color: black;
+    justify-content: center;
+    margin: auto;
+}
+
+
+form {
+    
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    grid-template-rows: repeat(5, max-content);
+    justify-items: start;
+    grid-gap: 1rem;
+
+}
+
+.input {
+    grid-column: 2/-1;
+}
+
+label {
+    justify-self: end;
+}

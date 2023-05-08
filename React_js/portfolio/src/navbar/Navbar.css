@@ -1,0 +1,44 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #32a862;
+    height: 200px;
+}
+
+.navbar-routes {
+    margin-top: 40px;
+}
+
+.navbar-title {
+    margin-left: 10px;
+    color: white;
+    margin-top: 65px;
+
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+
+}
+
+li a {
+    display: block;
+    text-align: right;
+    padding: 16px;
+    color: white;
+    text-decoration: none;
+    float: right;
+    font-size: 18px;
+
+}
+
+li a:hover {
+    font-size: 22px;
+
+}
