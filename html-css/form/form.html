@@ -6,160 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <style>
-    .container{
-        display: flex;
-        flex-flow: row wrap;
-        align-items: center;
-    }
-
-    input,
-    select {
-      border: 1px solid blue;
-    }
-
-    .label {
-        display: inline-block;
-      /* outline: 2px solid yellow; */
-      max-width: 140px;
-    }
-
-    .user {
-      display: flex;
-      margin-top: 12px;
-    }
-    .userInp {
-      margin-left: 55px;
-    }
-
-    .pass {
-        display: flex;
-      margin-top: 14px;
-    }
-    .passInp {
-      margin-left: 60px;
-    }
-
-    .emp {
-        display: flex;
-      align-items: start;
-      margin-top: 12px;
-    }
-    .empInp {
-      margin-left: 18px;
-    }
-
-    .server {
-        display: flex;
-      margin-top: 12px;
-      align-items: start;
-    }
-    .serverInp {
-      margin-left: 45px;
-    }
-
-    .role {
-      display: flex;
-      align-items:center;
-      margin-top: 25px;
-    }
-    .roleInp {
-      margin-left: 5px;
-    }
-
-.signInp{
-    margin-top: 20px;
-}
-
-.btn{
-    margin-left: 140px;
-}
-  </style>
+  <link rel="stylesheet" type="text/css" href="style.css" />
   <body>
-    <h2> Create Form</h2>
+    <h2 class="title">Create Form</h2>
     <div class="container">
       <form>
-        <div class="user">
-          <label class="label">Username: </label>
-          <div class="userInp">
-            <input type="text" name="name" required />
-          </div>
+        <label for="user" class="label">Username: </label>
+        <input type="text" id="user" name="name" />
+
+        <label for="pass" class="label">Password: </label>
+        <input type="password" id="pass" name="pass" />
+
+        <label for="emp" class="label">City of Employement: </label>
+        <input id="emp" type="text" name="emp" />
+
+        <label for="server" class="label"> Web server: </label>
+        <div>
+          <select id="server" name="web server">
+            <option value="">Choose a server</option>
+            <option value="Apache">Apache</option>
+            <option value="Nginx">Nginx</option>
+            <option value="Node.js">Node.js</option>
+            <option value="IIS Web Server">IIS Web Server</option>
+          </select>
         </div>
 
-        <div class="pass">
-          <label class="label">Password: </label>
-          <div class="passInp" >
-            <input type="password" id="pass" name="pass" required />
-          </div>
+        <label class="label"> Please specify your role: </label>
+        <div>
+          <input type="radio" id="admin" name="role" value="Admin" />
+          <label for="admin"> Admin </label><br />
+          <input type="radio" id="eng" name="role" value="Engineer" />
+          <label for="eng"> Engineer </label><br />
+          <input type="radio" id="Mang" name="role" value="Manager" />
+          <label for="Mang"> Manager </label><br />
+          <input type="radio" id="guest" name="role" value="Guest" />
+          <label for="guest"> Guest </label><br />
         </div>
 
-        <div class="emp">
-          <label class="label">City of Employement: </label>
-          <div class="empInp">
-            <input type="text" name="emp" />
-          </div>
-        </div>
-
-        <div class="server">
-          <label class="label"> Web server: </label>
-          <div class="serverInp">
-            <select name="web server">
-              <option value="">Choose a server</option>
-              <option value="Apache">Apache</option>
-              <option value="Nginx">Nginx</option>
-              <option value="Node.js">Node.js</option>
-              <option value="IIS Web Server">IIS Web Server</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="role">
-          <label class="label"> Please specify your role: </label>
-          <div class="roleInp">
-            <div>
-                <input type="radio" id="admin" name="role" value="Admin" />
-                <label> Admin </label><br />
-            </div>
-            <div>
-                <input type="radio" id="eng" name="role" value="Engineer" />
-                <label> Engineer </label><br />
-            </div>
-            <div>
-                <input type="radio" id="Mang" name="role" value="Manager" />
-                <label> Manager </label><br />
-            </div>
-            <div>
-                <input type="radio" id="guest" name="role" value="Guest" />
-                <label> Guest </label><br />
-            </div>
-          </div>
-        </div>
-
-        <div class="role sign">
-          <label class="label"> Single Sign-on to the following: </label>
-          <div class="signInp">
-            <div>
-                <input type="checkbox" name="mail" value="Mail" />
-                <label> Mail </label><br />
-            </div>
-            <div>
-                <input type="checkbox" name="Payroll" value="Payroll" />
-                <label> Payroll </label><br />
-            </div>
-            <div>
-                <input type="checkbox" name="selfservice " value="selfservice" />
-                <label> self-service </label><br /><br />
-            </div>
-          </div>
+        <label class="label"> Sign-on to the following: </label>
+        <div>
+          <input id="mail" type="checkbox" name="mail" value="mail" />
+          <label for="mail"> Mail </label><br />
+          <input id="payroll" type="checkbox" name="payroll" value="payroll" />
+          <label for="payroll"> Payroll </label><br />
+          <input
+            id="selfservice"
+            type="checkbox"
+            name="selfservice "
+            value="selfservice"
+          />
+          <label for="selfservice"> Self-service </label><br /><br />
         </div>
 
         <div class="btn">
-          <input
-            type="submit"
-            value="Login"
-            
-          />
-          <input type="Reset" value="Reset" />
+          <button type="submit" id="form">Submit</button>
+          <button type="reset">Reset</button>
         </div>
       </form>
     </div>
