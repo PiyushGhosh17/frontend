@@ -1,78 +1,60 @@
 /* ----- ---------- header css -------------------- */
-.header{
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    background-color: #32a862;
-    height: 200px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #32a862;
+  height: 200px;
 }
 
-.headList{
-margin-top: 40px;
+.headList {
+  display: flex;
 }
 
-.title{
-    margin-left: 10px;
-    color: white;
-    margin-top: 40px;
-    
+.routes {
+  list-style-type: none;
+  float: left;
+}
+.title {
+  color: white;
 }
 
-ul{
-    list-style-type: none;
-    overflow: hidden;
+.routes a {
+  padding: 16px;
+  color: white;
+  text-decoration: none;
+  float: right;
+  font-size: 20px;
 }
-
-li{
-float: left;
-
-}
-
-li a{
-    display: block;
-    text-align:right;
-    padding: 16px;
-    color: white;
-    text-decoration: none;
-    float: right;
-    font-size:18px;
-    
-}
-
-li a:hover{
-    font-size: 22px;
-    
+.routes a:hover {
+  font-weight: bold;
 }
 
 /* ----------- body css ------------- */
 
-.cards{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    row-gap: 1rem;
-    column-gap: 1rem;
-    margin-bottom: 20px;
-
-}
-.card{
-    width:300px;
-    height: 365px;
-    box-shadow: 5px 10px 8px #888888;
-    
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  margin-bottom: 20px;
 }
 
-.container{
-    margin-left: 10px;
+.card {
+  width: 300px;
+  height: 365px;
+  box-shadow: 5px 10px 8px #888888;
 }
 
-.cards2{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    row-gap: 1rem;
-    column-gap: 1rem;
-    
+.container {
+  margin-left: 10px;
 }
 
-/* -------------- media query ------------ */
+.cards2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}

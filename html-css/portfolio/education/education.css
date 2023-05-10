@@ -1,87 +1,67 @@
-
-.header{
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    background-color: #32a862;
-    height: 200px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #32a862;
+  height: 200px;
 }
 
-.headList{
-margin-top: 40px;
+.headList {
+  display: flex;
 }
 
-.title{
-    margin-left: 10px;
-    color: white;
-    margin-top: 40px;
-    
+.routes {
+  list-style-type: none;
+  float: left;
+}
+.title {
+  color: white;
 }
 
-ul{
-    list-style-type: none;
-    overflow: hidden;
+.routes a {
+  padding: 16px;
+  color: white;
+  text-decoration: none;
+  float: right;
+  font-size: 20px;
+}
+.routes a:hover {
+  font-weight: bold;
+}
+/*---------body ---------- */
+.grad {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+.grad img {
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+  margin-top: 30px;
 }
 
-li{
-float: left;
-
+.edu {
+  height: 400px;
+  margin-top: 30px;
 }
 
-li a{
-    display: block;
-    text-align:right;
-    padding: 16px;
-    color: white;
-    text-decoration: none;
-    float: right;
-    font-size:18px;
-    
+.edu1 {
+  display: flex;
+  justify-content: center;
+}
+.edu1 img {
+  width: 50px;
+  height: 40px;
+  margin-top: 30px;
+}
+.HS {
+  margin-right: 190px;
+}
+.ms {
+  margin-right: 30px;
 }
 
-li a:hover{
-    font-size: 22px;
-    
+.h2 {
+  margin-bottom: 8px;
 }
-
-.grad{
-    /* border: 1px solid red; */
-    display: flex;
-    justify-content: center;
-    height: 100px;
-    
-}
-.grad img{
-    margin-right: 10px;
-    width: 60px;
-    height: 60px;
-    margin-top: 30px;
-    
-}
-
-.edu{
-    height: 400px;
-    margin-top: 30px;
-}
-
-.edu1{
-    display: flex;
-    justify-content: center;
-    
-}
-.edu1 img{
-    width: 50px;
-    height: 40px;
-    margin-top:30px;
-}
-.HS{
-    margin-right: 190px;
-}
-.ms{
-    margin-right: 30px;
-}
-
-.h2{
-    margin-bottom: 8px;
-}
-
