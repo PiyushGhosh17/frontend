@@ -1,5 +1,4 @@
 let today = new Date();
-
 let currYear = today.getFullYear();
 let currMonth = today.getMonth();
 
@@ -11,7 +10,7 @@ const month = [
   "May",
   "June",
   "July",
-  "Augest",
+  "Aug",
   "Sep",
   "Oct",
   "Nov",
@@ -23,15 +22,16 @@ const day = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 const currDate = document.getElementById("currDate");
 renderCal(currYear, currMonth);
 
-function nextMonth() {
-  currYear = currMonth === 11 ? currYear + 1 : currYear;
-  currMonth = currMonth === 11 ? 0 : currMonth + 1;
-  renderCal(currYear, currMonth);
-}
-
-function prevMonth() {
-  currYear = currMonth === 0 ? currYear - 1 : currYear;
-  currMonth = currMonth === 0 ? 11 : currMonth - 1;
+function changeMonth(operation) {
+  currMonth = currMonth + operation;
+  if (currMonth === 12) {
+    currMonth = 0;
+    currYear += 1;
+  }
+  if (currMonth === -1) {
+    currMonth = 11;
+    currYear -= 1;
+  }
   renderCal(currYear, currMonth);
 }
 
