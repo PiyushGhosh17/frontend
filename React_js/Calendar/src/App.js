@@ -51,7 +51,6 @@ function App() {
         }
       }
     }
-    console.log({ ans });
     return ans;
   };
   const nextMonth = () => {
@@ -73,7 +72,11 @@ function App() {
   };
 
   const handleYear = (year) => {
-    setYear(year);
+    if (year.length < 4) {
+      alert("Year should be in four digit");
+    } else {
+      setYear(year);
+    }
   };
 
   return (
@@ -108,16 +111,16 @@ function App() {
             name="year"
             placeholder="Enter Year "
             className="inp"
-            onChange={(e) => handleYear(e.target.value)}
           />
+          <button onClick={(e) => handleYear(e.target.value)}>Search</button>
         </div>
       </div>
 
       <div className="calendar">
         <ul id="days">
-          {datesArray(month, year).map((date) => {
+          {datesArray(month, year).map((date, i) => {
             return (
-              <li id="date" onClick={() => handleChangeDate(date)}>
+              <li key={i} id="date" onClick={() => handleChangeDate(date)}>
                 {date}
               </li>
             );

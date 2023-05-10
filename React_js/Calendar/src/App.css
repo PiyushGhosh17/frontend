@@ -1,60 +1,57 @@
-.navigation  {
-    display:flex;
-    flex-direction: column;
-    margin-left: 40px;
+.navigation {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
 }
 
-.input{
-    display: block;
+.input {
+  display: block;
 }
 
 .btn {
-    width: 30px;
-    height: 30px;
-    border: none;
-    font-weight: bold;
-    color: inherit;
-    background: none;
+  width: 30px;
+  height: 30px;
+  border: none;
+  font-weight: bold;
+  color: inherit;
+  background: none;
 }
 
 #days {
-    display: grid;
-    grid-template-columns: repeat(7, 6ch);
-    
+  display: grid;
+  grid-template-columns: repeat(7, 6ch);
 }
-.title{
-    font-weight: bold;
+.title {
+  font-weight: bold;
 }
-
 
 li {
-    list-style: none;
-    border: 1px solid grey;
-    text-align: center;
-    padding: 10px;
-    color: gray;
-    margin: -1px -1px 0 0;
-    
+  list-style: none;
+  border: 1px solid grey;
+  text-align: center;
+  padding: 10px;
+  color: gray;
+  margin: -1px -1px 0 0;
 }
 
-#date{
-    cursor: pointer;
-    
+#date {
+  cursor: pointer;
 }
-#date:hover{
-    border: 2px solid black;
-    font-weight: bold;
-}
-
-#date:nth-child(7n+8){
-    color: red;
+li:hover {
+  background-color: blueviolet;
+  font-weight: bold;
+  color: black;
 }
 
-#date:nth-child(7n+13) {
-    color: green;
+#date:nth-child(7n + 8) {
+  color: red;
 }
 
-.inp{
-    margin-left: 10px;
-    width: 150px;
+#date:nth-child(7n + 13) {
+  color: green;
+}
+
+.inp {
+  margin-left: 10px;
+  width: 150px;
 }
