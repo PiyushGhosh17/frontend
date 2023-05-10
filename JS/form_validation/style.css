@@ -1,13 +1,24 @@
-form{
-     display: inline-grid;
-     grid-template-columns: max-content 1fr;
-     grid-gap:1rem;
-     grid-template-rows: repeat(6,max-content);
-     justify-items: start;
-     align-items: center;
+.container {
+  display: flex;
+  justify-content: center;
+}
+form {
+  display: inline-grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: 1rem;
+  grid-template-rows: repeat(6, max-content);
+  justify-items: start;
+  align-items: center;
 }
 
+.btn {
+  grid-column: 2/-1;
+}
 
-.btn{
-     grid-column: 2/-1;
+#roleRadioBtn {
+  margin-top: 15px;
+}
+
+#signOnCheckbox {
+  margin-top: 15px;
 }
