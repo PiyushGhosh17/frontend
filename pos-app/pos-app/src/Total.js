@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 
 function Total(props) {
-  const { count, name, price, sum } = props;
+  const { name, price, count, sum } = props;
   return (
     <div>
       <Card style={{ width: "18rem" }}>
@@ -16,6 +16,7 @@ function Total(props) {
         </ListGroup>
         <Card.Header>Net Total:{sum}</Card.Header>
       </Card>
+      );
     </div>
   );
 }
