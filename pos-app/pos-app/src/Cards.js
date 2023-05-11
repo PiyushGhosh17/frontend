@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
 function Cards(props) {
-  const { id, name, image, title, price, handleCart } = props;
+  const { id, name, image, title, price, handleCart, removeCart } = props;
 
   return (
     <>
@@ -21,6 +21,7 @@ function Cards(props) {
           <Button onClick={() => handleCart(id, name, price)} variant="primary">
             Add to Cart
           </Button>
+          <Button onClick={() => removeCart(id)}>Remove</Button>
         </Card.Body>
       </Card>
     </>

@@ -147,6 +147,30 @@ function App() {
       }
     });
   };
+  const removeCart = (id, name, price) => {
+    setItems((item) => {
+      const itemdIndex = item.findIndex((ele) => ele.id === id);
+      return item.map((product, index) =>
+        index === itemdIndex
+          ? {
+              ...product,
+              count:
+                product.count <= 1
+                  ? item.splice(itemdIndex, 1)
+                  : product.count - 1,
+            }
+          : product
+      );
+    });
+  };
+
+  const removeCart1 = (id) => {
+    setItems((item) => {
+      return item.filter((obj) => {
+        return obj.id !== id ?? { ...obj, count: obj.count - 1 };
+      });
+    });
+  };
 
   const NetTotal = useMemo(() => {
     return item.reduce((acc, i) => {
@@ -171,6 +195,7 @@ function App() {
               price={data.price}
               title={data.title}
               handleCart={handleCart}
+              removeCart={removeCart}
             />
           );
         })}
